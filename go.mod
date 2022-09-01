@@ -1,6 +1,6 @@
-module github.com/dipeshdulal/clean-gin
+module github.com/idrpambudi/fita-appointment
 
-go 1.17
+go 1.19
 
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible

@@ -4,8 +4,8 @@ import (
 	"errors"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/models"
+	"github.com/idrpambudi/fita-appointment/lib"
+	"github.com/idrpambudi/fita-appointment/models"
 )
 
 // JWTAuthService service relating to authorization

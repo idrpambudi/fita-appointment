@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/dipeshdulal/clean-gin/constants"
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/models"
-	"github.com/dipeshdulal/clean-gin/services"
 	"github.com/gin-gonic/gin"
+	"github.com/idrpambudi/fita-appointment/constants"
+	"github.com/idrpambudi/fita-appointment/lib"
+	"github.com/idrpambudi/fita-appointment/models"
+	"github.com/idrpambudi/fita-appointment/services"
 	"gorm.io/gorm"
 )
 

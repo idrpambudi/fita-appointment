@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/services"
 	"github.com/gin-gonic/gin"
+	"github.com/idrpambudi/fita-appointment/lib"
+	"github.com/idrpambudi/fita-appointment/services"
 )
 
 // JWTAuthController struct

@@ -1,9 +1,9 @@
 package services
 
 import (
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/models"
-	"github.com/dipeshdulal/clean-gin/repository"
+	"github.com/idrpambudi/fita-appointment/lib"
+	"github.com/idrpambudi/fita-appointment/models"
+	"github.com/idrpambudi/fita-appointment/repository"
 	"gorm.io/gorm"
 )
 
