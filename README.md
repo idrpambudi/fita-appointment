@@ -3,7 +3,8 @@
 Coach appointment API implemented in Go with Gin framwork, go-fx dependency container, and MongoDB database.
 
 ## Getting Started
-1. hehehe
+1. Copy `.env.example` to `.env`
+2. 
 
 ## Implemented Features
 - Make an appointment & book the schedule
@@ -12,15 +13,17 @@ Coach appointment API implemented in Go with Gin framwork, go-fx dependency cont
 - If user decline the rescheduling, then all ended (no need to provide another rescheduling)
 
 ## Assumptions
-- An appointment made by the users will not exceed 24 hours time interval
+- An appointment made by the users will not exceed 24 hours time interval.
 - For the sake of simplicity, coach and user names are unique. Hence it can be used as coach and user identifier.
 - Appointment status approval should be made by coach and ideally the request is authenticated, both as a coach and as an individual. For the sake of simplicity, no authentication is implemented here, all requests are assumed to be requested by the right party. The same case for the rescheduled appointment status approval.
-- hoasdfo
+- Reschedule assumed to ignore collision with another appointment. The coach might allocate special time for the rescheduled appointment, or handle an appointment with other rescheduled appointments simultaneously.
 
+## API Contract
+Accessible through [this Postman Collection](https://www.getpostman.com/collections/7eb03ebd40f027e8ade4)
 
-Clean architecture template with gin framework, go-fx as dependency container, gorm as orm for database related operations.
-
-To learn about project structure and dependency injection please go through [here](https://medium.com/wesionary-team/dependency-injection-with-go-fx-b698a6585cf0?source=friends_link&sk=26f391ae41c493946ee3434be2ed4971)
+## What can be improved
+- Provides index to the fields that often used as the filter.
+- Handle more edge cases such as appointments with more than 24 hours duration.
 
 ## Running the project
 
