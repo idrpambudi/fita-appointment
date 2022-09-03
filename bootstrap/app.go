@@ -6,15 +6,8 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "clean-gin",
-	Short: "Clean architecture using gin framework",
-	Long: `
-█▀▀ █░░ █▀▀ ▄▀█ █▄░█ ▄▄ █▀▀ █ █▄░█
-█▄▄ █▄▄ ██▄ █▀█ █░▀█ ░░ █▄█ █ █░▀█      
-                                         		
-This is a command runner or cli for api architecture in golang. 
-Using this we can use underlying dependency injection container for running scripts. 
-Main advantage is that, we can use same services, repositories, infrastructure present in the application itself`,
+	Use:              "fita-appointment",
+	Short:            "Fita appointment API for take-home assignment ",
 	TraverseChildren: true,
 }
 

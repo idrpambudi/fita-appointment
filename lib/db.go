@@ -1,40 +1,41 @@
 package lib
 
 import (
-	"fmt"
+	"context"
+	"time"
 
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // Database modal
 type Database struct {
-	*gorm.DB
+	Client   *mongo.Client
+	Database *mongo.Database
 }
 
 // NewDatabase creates a new database instance
 func NewDatabase(env Env, logger Logger) Database {
+	dbURI := env.MongoDBURI
+	dbName := env.MongoDBName
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
 
-	username := env.DBUsername
-	password := env.DBPassword
-	host := env.DBHost
-	port := env.DBPort
-	dbname := env.DBName
-
-	url := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", username, password, host, port, dbname)
-
-	db, err := gorm.Open(mysql.Open(url), &gorm.Config{
-		Logger: logger.GetGormLogger(),
-	})
-
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(dbURI))
 	if err != nil {
-		logger.Info("Url: ", url)
-		logger.Panic(err)
+		logger.Fatal(err)
+	}
+
+	err = client.Ping(ctx, nil)
+	if err != nil {
+		logger.Fatal(err)
 	}
 
 	logger.Info("Database connection established")
 
-	return Database{
-		DB: db,
-	}
+	return Database{Client: client, Database: client.Database(dbName)}
+}
+
+func (db *Database) Collection(name string) *mongo.Collection {
+	return db.Database.Collection(name)
 }

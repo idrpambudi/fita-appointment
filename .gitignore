@@ -1,6 +1,7 @@
 .env
 server.log
-clean-gin
+fita-appointment
 __debug_bin
 .idea
+.vscode
 vendor
